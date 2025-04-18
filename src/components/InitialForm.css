@@ -1,0 +1,71 @@
+.formForQuestion {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    align-content: start;
+    justify-items: center;
+    font-size: 24px;
+    row-gap: 10px;
+    column-gap: 10px;
+}
+
+.formItem {
+    margin: 10px;
+    justify-items: start;
+}
+
+input, select {
+    font: inherit;
+    border: 1px solid black;
+    margin: 0px 10px;
+    justify-self: stretch;
+}
+
+input {
+    padding: 0 5px;
+}
+
+select {
+    padding: 0px;
+}
+
+label {
+    justify-self: end;
+    align-self: center;
+}
+
+#submitBtn {
+    grid-column: 1 / span 2;
+}
+
+.container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+}
+
+.formContainer, .questionContainer {
+    background-color: #ffecec;
+    margin: 10px;
+    padding: 30px;
+    border-radius: 20px;
+    place-content: center;
+    height: 500px;
+}
+
+#reset {
+    grid-column: 1 / span 2;
+    width: 200px;
+    font-size: 30px;
+    place-self: center;
+}
+
+
+@media screen and (max-width: 1260px) {
+    .container {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .formContainer, .questionContainer {
+        height: auto;
+    }
+}

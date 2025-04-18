@@ -1,0 +1,5 @@
+.getQuestion .active, .tryAgainBtn:hover {
+    transform: scale(0.95);
+    background-color: grey;
+    box-shadow: 0 0 2px 2px rgb(0, 0, 0);
+}

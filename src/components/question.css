@@ -1,0 +1,43 @@
+.question {
+    font-size: 25px;
+}
+
+.optionInputs {
+    font-size: 20px;
+    align-self: start;
+}
+
+.questionForm {
+    display: flex;
+    flex-direction: column;
+    
+}
+
+.correct {
+    color: green;
+}
+
+.wrong {
+    color: red;
+}
+
+.choicesList {
+    display: flex;
+    width: max-content;
+    flex-direction: column;
+    flex-wrap: wrap;
+    justify-content: start;
+    justify-self: center;
+}
+
+.submitBtn, .newQuestion, .response {
+    font-size: 24px;
+}
+
+.response {
+    margin-top: 15px;
+}
+
+.hideBtn {
+    display: none;
+}
