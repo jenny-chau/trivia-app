@@ -79,7 +79,7 @@ function Question ({q, choices, formData, tokenJson}) {
             });
             updateCorrect({
                 rightWrong: (
-                <p>{`Nice try, ${formData.name}`} <br/> {`Correct answer is: ${decodeURIComponent(q.correct_answer)}.`}</p>),
+                <p>{`Nice try, ${formData.name}.`} <br/> {`Correct answer is: ${decodeURIComponent(q.correct_answer)}.`}</p>),
                 rightWrongClass: "wrong"
             });
         }

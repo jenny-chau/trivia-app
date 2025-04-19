@@ -10,7 +10,6 @@
 .questionForm {
     display: flex;
     flex-direction: column;
-    
 }
 
 .correct {
