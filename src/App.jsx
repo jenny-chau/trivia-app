@@ -3,9 +3,13 @@ import InitialForm from './components/InitialForm';
 import { useState } from 'react';
 
 function App() {
+  // instructions state for toggling the instructions on/off based on when the instructions button is clicked
   const [instructions, setInstructions] = useState("");
+
+  // buttonClass for setting the button as active when the instructions are shown
   const [buttonClass, setButtonClass] = useState("");
 
+  // handles showing/hiding the instructions when the instructions button is clicked
   const handleClick = () => {
     if (instructions === "") {
       setButtonClass("active");

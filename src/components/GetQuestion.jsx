@@ -4,13 +4,25 @@ import Question from './Question';
 import './GetQuestion.css';
 
 function GetQuestion({tokenJson, formData}) {
+    // To store error messages that will be displayed to the user
     const [error, updateError] = useState("");
+
+    // Updates when a question is successfully fetched. Calles Question component to display the question.
     const [success, updateSuccess] = useState("");
+
+    // Used to display the "Try Again" button if the question was not successfully fetched.
     const [errorTryAgain, updateErrorTryAgain] = useState(false);
+
+    // Used as a dependency for the useEffect hook - tells useEffect to try getting another question when the user clicks the "Try Again" button.
     const [retry, updateRetry] = useState(false);
+
+    // When user clicks "Try Again", countdown timer for fetching a new question will be displayed to user.
     const [countdown, updateCountdown] = useState("");
+
+    // Used to add the "active" class to the "Try Again" button when it is clicked to indicated processing
     const [activeBtn, updateActiveBtn] = useState("");
 
+    // useEffect for fetching a question with retry as a dependency
     useEffect(() => {
         const getQuestion = async () => {
             try {
@@ -24,6 +36,7 @@ function GetQuestion({tokenJson, formData}) {
                     throw new Error("Failed to retrieve a question.");
                 }
 
+                // Sorts the choices in alphabetical order so that the correct answer is not always last
                 let choices = ([...questionJson.results[0].incorrect_answers, questionJson.results[0].correct_answer]);
                 let sortedChoices = [...choices].sort();
 
@@ -42,14 +55,17 @@ function GetQuestion({tokenJson, formData}) {
         getQuestion();
     }, [retry]);
 
+    // Used to handle the "Try Again" button being clicked
     const handleClick = () => {
         updateActiveBtn("active");
 
+        // to display a countdown to users until the question appears
         let count = 3;
         let counter = setInterval(() => {
             updateCountdown(String(count--));
         }, 1000);
 
+        // Waits 4 seconds before trying to fetch data to prevent calling the api too many times
         setTimeout(() => {
             updateRetry(true);
             clearInterval(counter);

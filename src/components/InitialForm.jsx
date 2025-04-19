@@ -3,15 +3,20 @@ import GetQuestion from './GetQuestion';
 import './InitialForm.css';
 
 function InitialForm() {
+    // formData to store user's input, updates everytime the input field changes (upon every key press into the field)
     const [formData, updateFormData] = useState({
         name: "",
         category: "",
         difficulty: ""
       });
     
+    // To store error messages that will be displayed to the user
     const [error, updateError] = useState("");
+
+    // If form is filled out correctly, success will update to call GetQuestion.jsx
     const [success, updateSuccess] = useState("");
 
+    // Reset button resets the form and clears any questions being displayed
     const handleReset = () => {
         updateFormData({
             name: "",
@@ -22,6 +27,7 @@ function InitialForm() {
         updateSuccess("");
     }
 
+    // Updates the formData every time a key pressed in the field. This ensures the most up-to-date information is stored.
     const handleChange = (event) => {
         const {name, value} = event.target;
         updateFormData((previous) => ({
@@ -30,6 +36,7 @@ function InitialForm() {
         }))
     }
 
+    // Function to validate that all the fields in the form are filled out
     const formValidation = () => {
         const {name, category, difficulty} = formData;
 
@@ -44,6 +51,7 @@ function InitialForm() {
         return true;
     }
 
+    // Called when the user submits the form. Fetches an api token.
     const formCheck = async (event) => {
         event.preventDefault();
 

@@ -1,3 +1,4 @@
+/* Styling for the try again button */
 .getQuestion .active, .tryAgainBtn:hover {
     transform: scale(0.95);
     background-color: grey;
