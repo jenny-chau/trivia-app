@@ -51,7 +51,7 @@ function InitialForm() {
         return true;
     }
 
-    // Called when the user submits the form. Fetches an api token.
+    // Called when the user submits the form. Fetches an API token.
     const formCheck = async (event) => {
         event.preventDefault();
 
@@ -64,6 +64,7 @@ function InitialForm() {
             const tokenJson = await token.json();
 
             if (tokenJson.response_code !== 0) {
+                updateError("Failed to connect to the database. Please try again.");
                 throw new Error("Failed to connect to the question database.");
             }
 
@@ -85,9 +86,6 @@ function InitialForm() {
                         <label htmlFor="name">Name: </label>
                         <input type="text" id="name" name="name" value={formData.name} onChange={handleChange} />
 
-
-
-       
                         <label htmlFor="category">Choose a trivia category:</label>
                         <select id="category" name="category" value={formData.category} onChange={handleChange}>
                             <option value="">--</option>
@@ -97,8 +95,6 @@ function InitialForm() {
                             <option value="17">Science & Nature</option>
                         </select>
               
-    
-                  
                         <label htmlFor="difficulty">Choose a difficulty:</label>
                         <select id="difficulty" name="difficulty" value={formData.difficulty} onChange={handleChange}>
                             <option value="">--</option>
@@ -107,8 +103,6 @@ function InitialForm() {
                             <option value="hard">Hard</option>
                         </select>
                
-
-
                     <button id={"submitBtn"} type='submit'>Start</button>
                 </form>
                 

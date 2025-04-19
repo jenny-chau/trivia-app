@@ -6,7 +6,7 @@ function App() {
   // instructions state for toggling the instructions on/off based on when the instructions button is clicked
   const [instructions, setInstructions] = useState("");
 
-  // buttonClass for setting the button as active when the instructions are shown
+  // buttonClass for setting the instructions button class as "active" when the instructions are shown
   const [buttonClass, setButtonClass] = useState("");
 
   // handles showing/hiding the instructions when the instructions button is clicked
@@ -15,13 +15,13 @@ function App() {
       setButtonClass("active");
       setInstructions(
         <p className={"instructions"}>
-          <b>1.</b> Enter your name<br/>
-          <b>2.</b> Select the trivia question category <br/>
-          <b>3.</b> Select the difficulty <br/>
-          <b>4.</b> Click "Start" and the trivia question will appear <br/>
-          <b>5.</b> Choose your answer<br/>
-          <b>6.</b> Click submit to see if you got it right<br/>
-          <b>7.</b> Click "New Question" for another question in the same category<br/><br/>
+          1. Enter your name<br/>
+          2. Select the trivia question category <br/>
+          3. Select the difficulty <br/>
+          4. Click "Start" and the trivia question will appear <br/>
+          5. Choose your answer<br/>
+          6. Click submit to see if you got it right<br/>
+          7. Click "New Question" for another question in the same category<br/><br/>
           Have Fun!!
         </p>
       )

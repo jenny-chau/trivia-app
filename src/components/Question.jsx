@@ -6,14 +6,14 @@ function Question ({q, choices, formData, tokenJson}) {
     // To store error messages that will be displayed to the user
     const [error, updateError] = useState("");
 
-    // Gets updated when the user answers the question correctly and shows a New Question button to retrive another question.
+    // Updates when the user answers the question and displays a "New Question" button to retrieve another question.
     const [success, updateSuccess] = useState("");
 
-    // Stores the user's answer. Updates everytime user clicks on one of the question options.
+    // Stores the user's answer
     const [answer, updateAnswer] = useState("");
 
-    // rightWrong: Stores Correct or Incorrect messages depending on whether the answer user submits is correct. Gets displayed to the user.
-    // rightWrongClass: stores whether the message should be displayed as red/green text (updates the class of the html)
+    // rightWrong: Stores a message telling the user if they answered correctly. Gets displayed to the user.
+    // rightWrongClass: Stores whether the message should be displayed as red/green text if answered incorrectly/correctly (updates the class of the html)
     const [correct, updateCorrect] = useState({
         rightWrong: "",
         rightWrongClass: ""
@@ -43,7 +43,7 @@ function Question ({q, choices, formData, tokenJson}) {
         return true;
     }
 
-    // updates answer everytime user clicks an option
+    // Updates answer everytime user clicks an option
     const handleChange = (event) => {
         updateAnswer(event.target.value);
     }
@@ -58,7 +58,7 @@ function Question ({q, choices, formData, tokenJson}) {
         updateDisplay(false);
     }
 
-    // checks if answer submitted by user is correct.
+    // Checks if answer submitted by user is correct.
     const checkAnswer = (event) => {
         event.preventDefault();
 
@@ -79,7 +79,7 @@ function Question ({q, choices, formData, tokenJson}) {
             });
             updateCorrect({
                 rightWrong: (
-                <p>{`Good try, ${formData.name}`} <br/>{`Correct answer is: ${decodeURIComponent(q.correct_answer)}.`}</p>),
+                <p>{`Nice try, ${formData.name}`} <br/> {`Correct answer is: ${decodeURIComponent(q.correct_answer)}.`}</p>),
                 rightWrongClass: "wrong"
             });
         }

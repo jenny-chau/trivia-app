@@ -16,13 +16,13 @@ function GetQuestion({tokenJson, formData}) {
     // Used as a dependency for the useEffect hook - tells useEffect to try getting another question when the user clicks the "Try Again" button.
     const [retry, updateRetry] = useState(false);
 
-    // When user clicks "Try Again", countdown timer for fetching a new question will be displayed to user.
+    // When user clicks "Try Again" button, countdown timer for fetching a new question will be displayed to user.
     const [countdown, updateCountdown] = useState("");
 
-    // Used to add the "active" class to the "Try Again" button when it is clicked to indicated processing
+    // Used to add the "active" class to the "Try Again" button when it is clicked to indicate processing
     const [activeBtn, updateActiveBtn] = useState("");
 
-    // useEffect for fetching a question with retry as a dependency
+    // useEffect hook for fetching a question with "retry" as a dependency
     useEffect(() => {
         const getQuestion = async () => {
             try {
@@ -59,13 +59,13 @@ function GetQuestion({tokenJson, formData}) {
     const handleClick = () => {
         updateActiveBtn("active");
 
-        // to display a countdown to users until the question appears
+        // Used to display a countdown to users until the question appears
         let count = 3;
         let counter = setInterval(() => {
             updateCountdown(String(count--));
         }, 1000);
 
-        // Waits 4 seconds before trying to fetch data to prevent calling the api too many times
+        // Waits 4 seconds before trying to fetch data to prevent calling the API too many times
         setTimeout(() => {
             updateRetry(true);
             clearInterval(counter);
@@ -74,7 +74,6 @@ function GetQuestion({tokenJson, formData}) {
             updateError("");
         }, 4000);
     }
-    
 
     return (
         <div className={"getQuestion"}>
